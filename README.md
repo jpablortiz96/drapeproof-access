@@ -225,3 +225,9 @@ web/          Next.js product application
 Visual verification does not establish physical fit, sizing, safety, device function, accessibility compatibility, medical condition, or biometric identity. AI generations may vary, image-based measurements can be inconclusive, and DrapeProof may block a comparison or restoration when its preconditions are not met.
 
 The current release is a public beta and its verification policies are explicitly experimental rather than statistically validated.
+
+## License
+
+DrapeProof is licensed under the Apache License 2.0. See [LICENSE](./LICENSE).
+
+Third-party dependencies and assets remain subject to their respective licenses and terms; the DrapeProof license does not relicense them.
