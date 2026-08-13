@@ -9,7 +9,7 @@
     "version": "1.0.0",
     "sha256": "1fa59c2582b14207cdcfd0b3c6b5decb2fc14a2e431d0b891f9baf52e349c260",
     "historical_primary_overlap_threshold": 0.35,
-    "historical_status": "NOT_VALIDATED"
+    "historical_status": "FAIL_M8A"
   },
   "intent": {
     "provider_category": "upper_body",

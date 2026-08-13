@@ -7,7 +7,7 @@ export interface MappedRegion {
   label: string;
   status: "MAPPABLE" | "UNMAPPABLE";
   reason_codes: string[];
-  mapping_model: "UNIFORM_NORMALIZED_COORDINATES" | null;
+  mapping_model: "M1_UNIFORM_NORMALIZED_COORDINATES" | null;
   source_polygon_normalized: ProtectedRegion["polygon"];
   generated_polygon_normalized: ProtectedRegion["polygon"] | null;
   generated_polygon_pixels: Array<{ x: number; y: number }> | null;
@@ -19,7 +19,7 @@ export interface RegionMappability {
   mapping_prerequisites: {
     uniform_frame_compatibility: boolean;
     stable_feature_transform: boolean;
-    feature_homography_role: "SUPPORTING_GEOMETRIC_EVIDENCE_NOT_USED_TO_OVERRIDE_MAPPING";
+    feature_homography_role: "SUPPORTING_GEOMETRIC_EVIDENCE_NOT_USED_TO_OVERRIDE_M1";
   };
   regions: MappedRegion[];
 }
@@ -43,14 +43,14 @@ export function evaluateRegionMappability(options: {
     mapping_prerequisites: {
       uniform_frame_compatibility: options.frame.uniform_scale_compatible,
       stable_feature_transform: options.featureEvaluation.stable_geometric_transform,
-      feature_homography_role: "SUPPORTING_GEOMETRIC_EVIDENCE_NOT_USED_TO_OVERRIDE_MAPPING",
+      feature_homography_role: "SUPPORTING_GEOMETRIC_EVIDENCE_NOT_USED_TO_OVERRIDE_M1",
     },
     regions: options.regions.map((region) => ({
       region_id: region.id,
       label: region.label,
       status: mappable ? "MAPPABLE" : "UNMAPPABLE",
       reason_codes: mappable ? [] : uniqueReasons,
-      mapping_model: mappable ? "UNIFORM_NORMALIZED_COORDINATES" : null,
+      mapping_model: mappable ? "M1_UNIFORM_NORMALIZED_COORDINATES" : null,
       source_polygon_normalized: region.polygon,
       generated_polygon_normalized: mappable ? region.polygon : null,
       generated_polygon_pixels: mappable ? region.polygon.map((point) => ({

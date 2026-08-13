@@ -178,7 +178,7 @@ describe("intent-aware repair eligibility", () => {
       import("node:fs/promises").then(({ readFile }) => readFile(resolve("src/preserve/v2-intent.ts"), "utf8")),
     ]);
     expect(JSON.parse(v1Text)).toMatchObject({ name: "EXPERIMENTAL_PRESERVE_POLICY_V1", transformation_zone: { block_at_or_above_overlap_ratio: 0.35 } });
-    expect(JSON.parse(v2Text)).toMatchObject({ name: "EXPERIMENTAL_PRESERVE_POLICY_V2", v1_policy_reference: { historical_status: "NOT_VALIDATED" } });
+    expect(JSON.parse(v2Text)).toMatchObject({ name: "EXPERIMENTAL_PRESERVE_POLICY_V2", v1_policy_reference: { historical_status: "FAIL_M8A" } });
     expect(`${engine}\n${v2Source}`).not.toMatch(/YouCamClient|YOUCAM_API_KEY|provider\.start|provider\.poll/);
     await expect(access(resolve("web/app/api/m8a_1/route.ts"))).rejects.toMatchObject({ code: "ENOENT" });
   });

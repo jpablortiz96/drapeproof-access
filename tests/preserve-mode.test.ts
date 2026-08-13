@@ -53,7 +53,7 @@ async function fixture(continuity = true): Promise<{ repository: FileSessionRepo
     state: continuity ? "CONSISTENT" : "CHANGED_TOO_MUCH", localVerificationEligible: continuity, reasonCodes: continuity ? [] : ["POSE_GEOMETRY_SHIFT"],
     signals: [
       { key: "features", status: continuity ? "PASS" : "FAIL", reasonCodes: [], raw: { geometric_inliers: 120, inlier_ratio: .98 } },
-      { key: "regions", status: continuity ? "PASS" : "FAIL", reasonCodes: [], raw: { mapping_model: continuity ? "UNIFORM_NORMALIZED_COORDINATES" : null } },
+      { key: "regions", status: continuity ? "PASS" : "FAIL", reasonCodes: [], raw: { mapping_model: continuity ? "M1_UNIFORM_NORMALIZED_COORDINATES" : null } },
       { key: "pose", status: continuity ? "PASS" : "FAIL", reasonCodes: [], raw: { preservation_pose: { implementation: "MediaPipe Pose Landmarker", model: { name: "Pose landmarker", sha256: "59929e1d1ee95287735ddd833b19cf4ac46d29bc7afddbbf6753c459690d574a" }, poses_detected: 1, landmarks } } },
     ],
   };

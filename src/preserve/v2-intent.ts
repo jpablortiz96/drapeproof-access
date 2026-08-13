@@ -18,7 +18,7 @@ export interface PreservePolicyV2 {
     version: "1.0.0";
     sha256: string;
     historical_primary_overlap_threshold: 0.35;
-    historical_status: "NOT_VALIDATED";
+    historical_status: "FAIL_M8A";
   };
   intent: {
     provider_category: "upper_body";
@@ -135,7 +135,7 @@ export function validatePreservePolicyV2(value: unknown): PreservePolicyV2 {
   if (!record(value) || value.name !== "EXPERIMENTAL_PRESERVE_POLICY_V2" || value.version !== "2.0.0" || value.validated !== false || value.repair_implementation !== "PRESERVE_ENGINE_V1") {
     throw new Error("Invalid V2 preserve policy identity.");
   }
-  if (!record(value.v1_policy_reference) || value.v1_policy_reference.name !== "EXPERIMENTAL_PRESERVE_POLICY_V1" || value.v1_policy_reference.historical_primary_overlap_threshold !== 0.35 || value.v1_policy_reference.historical_status !== "NOT_VALIDATED") {
+  if (!record(value.v1_policy_reference) || value.v1_policy_reference.name !== "EXPERIMENTAL_PRESERVE_POLICY_V1" || value.v1_policy_reference.historical_primary_overlap_threshold !== 0.35 || value.v1_policy_reference.historical_status !== "FAIL_M8A") {
     throw new Error("V2 must preserve the historical failed V1 policy reference and 35% threshold.");
   }
   if (!record(value.intent) || value.intent.provider_category !== "upper_body" || value.intent.estimator !== INTENT_ESTIMATOR_VERSION || !Array.isArray(value.intent.required_landmarks)) throw new Error("Invalid V2 upper-body intent policy.");
