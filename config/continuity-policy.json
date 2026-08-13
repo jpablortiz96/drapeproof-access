@@ -1,0 +1,39 @@
+{
+  "name": "EXPERIMENTAL_CONTINUITY_POLICY_V1",
+  "version": "1.0.0",
+  "validated": false,
+  "purpose": "Determine whether local protected-region verification is geometrically defensible. This policy does not score image quality, identity, accessibility, safety, or provider performance.",
+  "frame_geometry": {
+    "uniform_alignment_tolerance": 0.001
+  },
+  "pose_geometry": {
+    "landmark_visibility_minimum": 0.5,
+    "landmark_presence_minimum": 0.5,
+    "minimum_common_critical_landmarks": 8,
+    "critical_landmark_loss_fail_at_or_above": 3,
+    "lower_body_landmark_loss_fail_at_or_above": 2,
+    "mean_body_coordinate_delta_review_at_or_above": 0.25,
+    "mean_body_coordinate_delta_fail_at_or_above": 0.55,
+    "maximum_angle_delta_degrees_review_at_or_above": 20,
+    "maximum_angle_delta_degrees_fail_at_or_above": 35,
+    "pose_bbox_relative_size_delta_review_at_or_above": 0.2,
+    "pose_bbox_relative_size_delta_fail_at_or_above": 0.4
+  },
+  "feature_correspondence": {
+    "minimum_retained_matches_review": 10,
+    "minimum_retained_matches_pass": 20,
+    "minimum_geometric_inliers_review": 6,
+    "minimum_geometric_inliers_pass": 12,
+    "minimum_inlier_ratio_review": 0.15,
+    "minimum_inlier_ratio_pass": 0.25,
+    "maximum_median_reprojection_error_pixels_pass": 4,
+    "maximum_median_reprojection_error_pixels_review": 8
+  },
+  "decision_logic": {
+    "continuity_fail_on_any_signal_fail": true,
+    "continuity_review_on_any_signal_review": true,
+    "local_verification_eligible_only_on_continuity_pass": true,
+    "region_mapping_requires_uniform_frame_compatibility": true,
+    "region_mapping_requires_stable_feature_transform": true
+  }
+}

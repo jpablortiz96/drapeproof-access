@@ -1,0 +1,44 @@
+{
+  "name": "EXPERIMENTAL_PRESERVE_POLICY_V1",
+  "version": "1.0.0",
+  "validated": false,
+  "description": "Conservative engineering policy for deterministic source restoration. Thresholds are transparent and are not statistically, clinically, safety, accessibility, or compatibility validated.",
+  "repair_implementation": "PRESERVE_ENGINE_V1",
+  "mapping": {
+    "minimum_affine_supporting_inliers": 50,
+    "minimum_affine_inlier_ratio": 0.8,
+    "maximum_affine_scale_change": 0.15,
+    "maximum_affine_shear": 0.08
+  },
+  "context": {
+    "blend_band_pixels": 10,
+    "photometric_context_ring_pixels": 10,
+    "outer_safety_ring_pixels": 8,
+    "minimum_context_pixels": 128,
+    "maximum_context_mean_channel_delta_8bit": 20,
+    "maximum_blend_band_channel_adjustment_8bit": 8
+  },
+  "transformation_zone": {
+    "per_pixel_max_channel_difference_8bit": 24,
+    "block_at_or_above_overlap_ratio": 0.35,
+    "control_window_width_ratio": 0.28,
+    "control_window_height_ratio": 0.18,
+    "control_search_step_pixels": 8
+  },
+  "outer_ring": {
+    "maximum_mean_absolute_difference": 0.0001,
+    "maximum_changed_pixel_ratio": 0.001,
+    "minimum_ssim": 0.999,
+    "maximum_edge_difference": 0.001
+  },
+  "material_improvement": {
+    "minimum_mad_reduction": 0.005,
+    "minimum_changed_ratio_reduction": 0.03,
+    "minimum_ssim_increase": 0.01,
+    "minimum_edge_difference_reduction": 0.02,
+    "maximum_allowed_mad_regression": 0.002,
+    "maximum_allowed_changed_ratio_regression": 0.01,
+    "maximum_allowed_ssim_regression": 0.005,
+    "maximum_allowed_edge_difference_regression": 0.01
+  }
+}

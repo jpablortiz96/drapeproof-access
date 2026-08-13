@@ -1,0 +1,17 @@
+node_modules/
+.env*
+!.env.example
+coverage/
+*.log
+dist/
+.data/
+.tmp/
+web/.next/
+*.tsbuildinfo
+.agents/
+.claude/
+web/AGENTS.md
+web/CLAUDE.md
+.vercel/
+skills-lock.json
+submission-private/

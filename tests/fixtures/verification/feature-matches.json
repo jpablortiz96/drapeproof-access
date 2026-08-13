@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "implementation": "OpenCV ORB + BFMatcher + RANSAC homography",
+  "dependency_version": "5.0.0",
+  "deterministic_runtime": {
+    "opencl": false,
+    "rng_seed": 0,
+    "threads": 1
+  },
+  "configuration": {
+    "grayscale": "OpenCV BGR-to-gray decoder",
+    "knn_k": 2,
+    "lowe_ratio": 0.75,
+    "matcher": "BFMatcher NORM_HAMMING crossCheck=false",
+    "maximum_long_side": 1024,
+    "orb": {
+      "WTA_K": 2,
+      "edgeThreshold": 31,
+      "fastThreshold": 20,
+      "firstLevel": 0,
+      "nfeatures": 2000,
+      "nlevels": 8,
+      "patchSize": 31,
+      "scaleFactor": 1.2,
+      "scoreType": "HARRIS_SCORE"
+    },
+    "ransac_confidence": 0.995,
+    "ransac_max_iterations": 2000,
+    "ransac_reprojection_threshold_pixels": 3,
+    "resize_interpolation": "INTER_AREA",
+    "visualization_match_limit": 80
+  },
+  "source": {
+    "height": 1536,
+    "path": "web/public/product/sample-original.png",
+    "scale": 0.6666666666666666,
+    "sha256": "5831d296faf889d4bd65a13e1d58a12888f655f6e21296203eafcac34ed20507",
+    "width": 1024,
+    "working_height": 1024,
+    "working_width": 683
+  },
+  "generated": {
+    "height": 1536,
+    "path": "web/public/product/sample-result.jpg",
+    "scale": 0.6666666666666666,
+    "sha256": "cc04d8abbbea3b9e03fc3d4644e85c5406d7388e4a4cea9348940b3c1d102686",
+    "width": 1024,
+    "working_height": 1024,
+    "working_width": 683
+  },
+  "source_keypoints": 2000,
+  "generated_keypoints": 2000,
+  "raw_matches": 2000,
+  "two_neighbor_match_pairs": 2000,
+  "retained_matches": 1348,
+  "geometric_inliers": 1338,
+  "inlier_ratio": 0.9925816023738873,
+  "geometric_transform_estimated": true,
+  "homography_source_pixels_to_generated_pixels": [
+    [
+      1.000684775710106,
+      0.00008781464057544498,
+      -0.25912117448568744
+    ],
+    [
+      0.000408637379751204,
+      1.00046487709381,
+      -0.2600489443063707
+    ],
+    [
+      4.003789284714951e-7,
+      1.6566617103154595e-7,
+      1
+    ]
+  ],
+  "homography_source_normalized_to_generated_normalized": [
+    [
+      1.000684775710106,
+      0.00013176488101985145,
+      -0.00025329538072892225
+    ],
+    [
+      0.0002723361820752324,
+      1.00046487709381,
+      -0.00016941299303346627
+    ],
+    [
+      0.00040958764382633946,
+      0.000254297572533423,
+      1
+    ]
+  ],
+  "inlier_reprojection_error_working_pixels": {
+    "mean": 0.17214984415685103,
+    "median": 0.03363054804503918,
+    "maximum": 2.9935526847839355
+  },
+  "evaluation": {
+    "status": "PASS",
+    "reason_codes": [],
+    "stable_geometric_transform": true
+  }
+}

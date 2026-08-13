@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "installCommand": "npm ci && npm --prefix web ci",
+  "buildCommand": "npm run build",
+  "outputDirectory": "web/.next",
+  "functions": {
+    "api/verification-worker.py": {
+      "maxDuration": 180,
+      "includeFiles": "{models/continuity/pose_landmarker_lite.task,scripts/continuity_cv.py}"
+    }
+  },
+  "crons": [
+    { "path": "/api/cron/cleanup", "schedule": "17 3 * * *" }
+  ]
+}

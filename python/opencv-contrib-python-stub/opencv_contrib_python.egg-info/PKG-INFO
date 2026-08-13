@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: opencv-contrib-python
+Version: 5.0.0.93
+Summary: DrapeProof dependency shim selecting the headless OpenCV contrib wheel for server runtimes.
+Requires-Python: >=3.12
+Requires-Dist: opencv-contrib-python-headless==5.0.0.93

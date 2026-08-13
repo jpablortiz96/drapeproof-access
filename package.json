@@ -1,0 +1,45 @@
+{
+  "name": "drapeproof-access",
+  "version": "1.0.0-rc.1",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "npm --prefix web run dev",
+    "build": "npm --prefix web run build && npm run check:paths && npm run check:verification-runtime && tsx scripts/ensure-vercel-next-lock.ts",
+    "start": "npm --prefix web run start",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "verify:region": "tsx scripts/verify-region.ts",
+    "browser:qa": "npm --prefix web run qa:production",
+    "db:migrate": "tsx scripts/migrate-production.ts",
+    "db:verify": "tsx scripts/verify-production-database.ts",
+    "cleanup:expired": "tsx scripts/cleanup-expired.ts",
+    "beta:report": "tsx scripts/beta-report.ts",
+    "beta:status": "tsx scripts/beta-status.ts",
+    "smoke:production": "tsx scripts/smoke-production.ts",
+    "smoke:infrastructure": "tsx scripts/smoke-infrastructure.ts",
+    "check:paths": "tsx scripts/check-production-paths.ts",
+    "check:verification-runtime": "tsx scripts/assert-verification-runtime.ts",
+    "audit:production": "npm audit --omit=dev && npm --prefix web audit --omit=dev",
+    "smoke:live-provider": "tsx scripts/run-live-production-smoke.ts"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "@vercel/blob": "^2.8.0",
+    "@vercel/firewall": "^1.2.5",
+    "dotenv": "^17.2.1",
+    "next": "16.3.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "sharp": "^0.35.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.10",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}

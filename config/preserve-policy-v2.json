@@ -1,0 +1,48 @@
+{
+  "name": "EXPERIMENTAL_PRESERVE_POLICY_V2",
+  "version": "2.0.0",
+  "validated": false,
+  "description": "Conservative intent-aware repair-eligibility policy for the verified upper_body Clothes workflow. This policy is independently evaluated, is not statistically validated, and does not alter historical V1 evidence or restoration math.",
+  "repair_implementation": "PRESERVE_ENGINE_V1",
+  "v1_policy_reference": {
+    "name": "EXPERIMENTAL_PRESERVE_POLICY_V1",
+    "version": "1.0.0",
+    "sha256": "1fa59c2582b14207cdcfd0b3c6b5decb2fc14a2e431d0b891f9baf52e349c260",
+    "historical_primary_overlap_threshold": 0.35,
+    "historical_status": "NOT_VALIDATED"
+  },
+  "intent": {
+    "provider_category": "upper_body",
+    "estimator": "UpperBodyPoseIntentZoneV1",
+    "pose_implementation": "MediaPipe Pose Landmarker",
+    "pose_model_sha256": "59929e1d1ee95287735ddd833b19cf4ac46d29bc7afddbbf6753c459690d574a",
+    "minimum_visibility": 0.5,
+    "minimum_presence": 0.5,
+    "required_landmarks": [
+      "left-shoulder",
+      "right-shoulder",
+      "left-elbow",
+      "right-elbow",
+      "left-wrist",
+      "right-wrist",
+      "left-hip",
+      "right-hip"
+    ],
+    "upper_torso_apex_offset_ratio_of_shoulder_span": 0.15
+  },
+  "guard_band": {
+    "minimum_normalized_margin": 0.018,
+    "margin_ratio_of_shoulder_span": 0.06,
+    "maximum_normalized_margin": 0.035,
+    "include_v1_blend_footprint_minimum": true,
+    "negligible_raster_contact_max_pixels": 2,
+    "minimum_clearance_beyond_footprints_normalized": 0.002
+  },
+  "decision_logic": {
+    "block_on_intent_zone_unavailable": true,
+    "block_on_any_non_negligible_core_intersection": true,
+    "block_on_any_non_negligible_blend_intersection": true,
+    "block_on_insufficient_clearance": true,
+    "v1_visual_difference_overlap_is_evidence_only": true
+  }
+}

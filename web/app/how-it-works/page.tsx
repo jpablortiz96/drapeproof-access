@@ -1,0 +1,14 @@
+import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "How it works",
+  description: "See how DrapeProof adds scene continuity and user-selected protected-area checks to AI clothes and bag previews.",
+  alternates: { canonical: "/how-it-works" },
+  openGraph: { url: "/how-it-works", title: "How DrapeProof works" },
+};
+
+export default function HowItWorksPage() {
+  return <main id="main" className="method-page"><section className="method-hero content-wrap"><p className="product-kicker">HOW DRAPEPROOF WORKS</p><h1>A try-on should change the look — not the whole story.</h1><p>DrapeProof adds a visual checking layer around an AI fashion preview, guided by the areas you care about.</p><Link className="primary-button" href="/try">Try a look</Link></section><section className="method-steps content-wrap">{[["1","You choose the look","Add a clear photo and a clothing or bag image."],["2","You choose what must stay unchanged","Mark one or more areas on your photo, in your own words."],["3","AI generates the preview","Your images are processed through the selected virtual try-on service."],["4","DrapeProof checks visual continuity","The result is checked globally first, then locally when comparison is defensible."]].map(([number,title,copy]) => <article key={number}><span>{number}</span><h2>{title}</h2><p>{copy}</p></article>)}</section><section className="method-feature content-wrap"><div className="method-image"><Image src="/product/sample-original.png" alt="Example source image with protected areas" fill sizes="(max-width: 800px) 92vw, 48vw"/><i className="method-region region-a">1</i><i className="method-region region-b">2</i><i className="method-region region-c">3</i></div><div><p className="product-kicker">THE CHECKING LAYER</p><h2>Global first. Local second.</h2><article><span>01</span><div><h3>Scene continuity</h3><p>Checks whether framing, pose, and stable visual structure still support a meaningful comparison.</p></div></article><article><span>02</span><div><h3>Protected areas</h3><p>If the scene remains comparable, DrapeProof checks the exact polygons you marked.</p></div></article><article><span>03</span><div><h3>Face appearance</h3><p>An optional secondary visual-signal analysis. It is not medical, identity, or biometric analysis.</p></div></article></div></section><section className="method-technical content-wrap"><p className="product-kicker">METHODOLOGY</p><h2>Transparent by design.</h2><p>The technical layer exposes continuity reason codes, geometric signals, and the underlying measurements for protected areas. It uses an explicit experimental engineering policy and never collapses the result into a single trust score.</p><p>DrapeProof verifies visual correspondence only. It cannot establish real-world fit, safety, accessibility compatibility, device operation, or product suitability.</p></section></main>;
+}

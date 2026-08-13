@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "coordinate_space": "normalized",
+  "source_run_id": "20260811T181906132Z-a146868e-c106-4aa6-ac0d-f0f860ef5451",
+  "regions": [
+    {
+      "id": "wheelchair-joystick",
+      "label": "Left wheelchair joystick/control housing",
+      "polygon": [
+        { "x": 0.213, "y": 0.475 },
+        { "x": 0.327, "y": 0.475 },
+        { "x": 0.327, "y": 0.520 },
+        { "x": 0.213, "y": 0.520 }
+      ]
+    },
+    {
+      "id": "wheelchair-armrest",
+      "label": "Right wheelchair armrest outer pad",
+      "polygon": [
+        { "x": 0.735, "y": 0.445 },
+        { "x": 0.775, "y": 0.445 },
+        { "x": 0.775, "y": 0.490 },
+        { "x": 0.735, "y": 0.490 }
+      ]
+    },
+    {
+      "id": "wheelchair-frame-wheel",
+      "label": "Right wheelchair front wheel",
+      "polygon": [
+        { "x": 0.765, "y": 0.787 },
+        { "x": 0.808, "y": 0.790 },
+        { "x": 0.825, "y": 0.835 },
+        { "x": 0.818, "y": 0.897 },
+        { "x": 0.793, "y": 0.908 },
+        { "x": 0.758, "y": 0.895 },
+        { "x": 0.748, "y": 0.835 }
+      ]
+    }
+  ]
+}

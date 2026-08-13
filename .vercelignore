@@ -1,0 +1,14 @@
+.agents/
+.claude/
+.data/
+.tmp/
+.vercel/
+.env*
+node_modules/
+web/node_modules/
+web/.next/
+docs/
+tests/
+submission-private/
+skills-lock.json
+*.tsbuildinfo

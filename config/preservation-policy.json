@@ -1,0 +1,31 @@
+{
+  "name": "EXPERIMENTAL_POLICY_V1",
+  "version": "1.0.0",
+  "validated": false,
+  "description": "Initial engineering thresholds intended to separate compression noise, review-worthy drift, and multi-signal change. They are not clinically, accessibility, or statistically validated.",
+  "pixel_tolerance_8bit": 12,
+  "sobel_edge_threshold_normalized": 0.1,
+  "thresholds": {
+    "mean_absolute_difference": {
+      "warning_at_or_above": 0.035,
+      "change_at_or_above": 0.1
+    },
+    "changed_pixel_ratio": {
+      "warning_at_or_above": 0.12,
+      "change_at_or_above": 0.4
+    },
+    "ssim": {
+      "warning_at_or_below": 0.96,
+      "change_at_or_below": 0.82
+    },
+    "edge_difference": {
+      "warning_at_or_above": 0.08,
+      "change_at_or_above": 0.22
+    }
+  },
+  "decision_logic": {
+    "changed_minimum_change_signals": 2,
+    "review_on_any_change_signal": true,
+    "review_on_any_warning_signal": true
+  }
+}
